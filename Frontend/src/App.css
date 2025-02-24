@@ -1,0 +1,124 @@
+/* Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  overflow: hidden; /* Prevents scrolling */
+}
+
+/* Main Layout */
+main {
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Left & Right Panels */
+.left, .right {
+  flex-basis: 50%;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Left Panel (Code Editor) */
+.left {
+  background-color: #111827;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Code Area */
+.left .code, .code pre, .code pre code {
+  flex-grow: 1;
+  width: 100%;
+  border-radius: 1rem;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  font-size: 14px;
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+/* Hide Scrollbars */
+.left .code, .right {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.left .code::-webkit-scrollbar,
+.right::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Review Button */
+.left .review {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.3);
+}
+
+.left .review:hover {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.5);
+}
+
+/* Right Panel (Review Output) */
+.right {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+/* Text Styles in Right Panel */
+.right h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #06b6d4; /* Cyan Title */
+}
+
+.right p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #facc15; /* Yellow Text */
+}
+.loading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffcc00;
+  text-align: center;
+  padding: 1rem;
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
